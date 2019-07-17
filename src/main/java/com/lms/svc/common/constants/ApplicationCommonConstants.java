@@ -21,4 +21,10 @@ public interface ApplicationCommonConstants {
 	
 	String NO_SUCH_USER_ERROR_MESSAGE = "No such user was found based on the search criteria.";
 	int NO_SUCH_USER_ERROR_CODE = 1008;
+	
+	String NO_SUCH_BOOK_ERROR_MESSAGE = "No such book was found based on the search criteria.";
+	int NO_SUCH_BOOK_ERROR_CODE = 1009;
+	
+	String INSUFFICIENT_PRIVILAGE_ERROR_MESSAGE = "You do not have appropriate right to perform this operation.";
+	int INSUFFICIENT_PRIVILAGE_ERROR_CODE = 1010;
 }
