@@ -27,4 +27,16 @@ public interface ApplicationCommonConstants {
 	
 	String INSUFFICIENT_PRIVILAGE_ERROR_MESSAGE = "You do not have appropriate right to perform this operation.";
 	int INSUFFICIENT_PRIVILAGE_ERROR_CODE = 1010;
+	
+	String INACTIVE_USER_ERROR_MESSAGE = "Either this user is inactive or has been deleted.";
+	int INACTIVE_USER_ERROR_CODE = 1012;
+	
+	String STATUS_CODE_ACTIVE = "A";
+	String STATUS_CODE_DELETED = "D";
+	String STATUS_CODE_INACTIVE = "T";
+	String STATUS_CODE_TEMP_INACTIVE = "I";
+	String STATUS_CODE_SUSPENDED = "S";
+	
+	String USER_RIGHT_U = "U";
+	String USER_RIGHT_A = "A";
 }

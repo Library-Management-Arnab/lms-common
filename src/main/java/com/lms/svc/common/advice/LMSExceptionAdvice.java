@@ -10,12 +10,13 @@ import com.lms.svc.common.exception.ApplicationError;
 import com.lms.svc.common.model.ErrorObject;
 
 @RestControllerAdvice
-public class JPOPExceptionAdvice {
+public class LMSExceptionAdvice {
 
 	@ExceptionHandler(value = { 
 			ApplicationError.class
 		})
 	public ResponseEntity<Object> handleApplicationException(ApplicationError e) {
+		e.printStackTrace();
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(e.getErrorCode());
 		eo.setMessage(e.getMessage());
@@ -27,6 +28,7 @@ public class JPOPExceptionAdvice {
 			Exception.class
 		})
 	public ResponseEntity<Object> handleGenericException(Exception e) {
+		e.printStackTrace();
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(1010);
 		eo.setMessage(e.getMessage());
