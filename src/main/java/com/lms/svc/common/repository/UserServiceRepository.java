@@ -19,8 +19,8 @@ public class UserServiceRepository {
 		this.restTemplate = restTemplate;
 	}
 
-	public AuthenticatedUser authenticate(User userData) {
-		ResponseEntity<AuthenticatedUser> response = restTemplate.postForEntity(USER_SERVICE_BASE_URL + "/login", userData,
+	public AuthenticatedUser authenticate(User user) {
+		ResponseEntity<AuthenticatedUser> response = restTemplate.postForEntity(USER_SERVICE_BASE_URL + "/login", user,
 				AuthenticatedUser.class);
 		HttpStatus statusCode = response.getStatusCode();
 
@@ -30,5 +30,12 @@ public class UserServiceRepository {
 		AuthenticatedUser body = response.getBody();
 		
 		return body;
+	}
+	public AuthenticatedUser authenticate(String userName, String password) {
+		User user = new User();
+		user.setUserName(userName);
+		user.setPassword(password);
+		
+		return authenticate(user);
 	}
 }
