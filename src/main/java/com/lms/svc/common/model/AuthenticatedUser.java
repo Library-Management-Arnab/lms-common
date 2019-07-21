@@ -5,7 +5,7 @@ import com.lms.svc.common.constants.ApplicationCommonConstants;
 import lombok.Data;
 
 @Data
-public class LoginResponse {
+public class AuthenticatedUser {
 	private String userName;
 	private String userRight;
 	private String userStatus;
@@ -14,6 +14,6 @@ public class LoginResponse {
 		return ApplicationCommonConstants.USER_RIGHT_A.equalsIgnoreCase(userRight);
 	}
 	public boolean isActive() {
-		return ApplicationCommonConstants.STATUS_CODE_ACTIVE.equalsIgnoreCase(userStatus);
+		return ApplicationCommonConstants.USER_STATUS_CODE_ACTIVE.equalsIgnoreCase(userStatus);
 	}
 }

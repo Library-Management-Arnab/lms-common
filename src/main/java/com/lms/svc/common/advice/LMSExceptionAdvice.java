@@ -1,5 +1,7 @@
 package com.lms.svc.common.advice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,12 +13,13 @@ import com.lms.svc.common.model.ErrorObject;
 
 @RestControllerAdvice
 public class LMSExceptionAdvice {
-
+	private static final Logger LOG = LoggerFactory.getLogger(LMSExceptionAdvice.class);
+	
 	@ExceptionHandler(value = { 
 			ApplicationError.class
 		})
 	public ResponseEntity<Object> handleApplicationException(ApplicationError e) {
-		e.printStackTrace();
+		LOG.error("Exception occurred - ", e);
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(e.getErrorCode());
 		eo.setMessage(e.getMessage());
@@ -28,7 +31,7 @@ public class LMSExceptionAdvice {
 			Exception.class
 		})
 	public ResponseEntity<Object> handleGenericException(Exception e) {
-		e.printStackTrace();
+		LOG.error("Exception occurred - ", e);
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(1010);
 		eo.setMessage(e.getMessage());

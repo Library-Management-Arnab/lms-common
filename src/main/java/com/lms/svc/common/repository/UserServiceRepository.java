@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 import com.lms.svc.common.exception.InvalidCredentialsException;
-import com.lms.svc.common.model.LoginResponse;
-import com.lms.svc.common.model.UserData;
+import com.lms.svc.common.model.AuthenticatedUser;
+import com.lms.svc.common.model.User;
 
 @Repository
 public class UserServiceRepository {
@@ -19,15 +19,15 @@ public class UserServiceRepository {
 		this.restTemplate = restTemplate;
 	}
 
-	public LoginResponse authenticate(UserData userData) {
-		ResponseEntity<LoginResponse> response = restTemplate.postForEntity(USER_SERVICE_BASE_URL + "/login", userData,
-				LoginResponse.class);
+	public AuthenticatedUser authenticate(User userData) {
+		ResponseEntity<AuthenticatedUser> response = restTemplate.postForEntity(USER_SERVICE_BASE_URL + "/login", userData,
+				AuthenticatedUser.class);
 		HttpStatus statusCode = response.getStatusCode();
 
 		if (statusCode.isError()) {
 			throw new InvalidCredentialsException();
 		}
-		LoginResponse body = response.getBody();
+		AuthenticatedUser body = response.getBody();
 		
 		return body;
 	}
