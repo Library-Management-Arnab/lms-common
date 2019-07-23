@@ -31,7 +31,7 @@ public class LMSExceptionAdvice {
 			Exception.class
 		})
 	public ResponseEntity<Object> handleGenericException(Exception e) {
-		LOG.error("Exception occurred - ", e);
+		LOG.error("Generic Exception occurred - ", e);
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(1010);
 		eo.setMessage(e.getMessage());
