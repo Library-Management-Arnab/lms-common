@@ -3,7 +3,6 @@ package com.lms.svc.common.constants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-import java.util.UUID;
 
 public interface ApplicationCommonConstants {
     String DATE_FORMAT = "dd-MMM-yyyy '@' HH:mm:ss";
