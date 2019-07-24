@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "89ab8c3c-428f-4ade-97d9-a07975af028a",
+		"name": "JPOP-EPAM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book-Service",
+			"item": [
+				{
+					"name": "Get All Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer\" : {\n    \t\"custId\" : 1\n    }, \n    \"orders\" : [\n    \t{\n    \t\t\"orderedItem\" : {\n    \t\t\t\"itemId\" : 1\n    \t\t},\n    \t\t\"unitsOrdered\" : 10\n    \t}\t\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/bookservice/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookservice",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"book\" : {\n\t\t\"bookName\":\"Aranyak\",\n\t\t\"author\": {\n\t\t\t\"authorName\" : \"Bibhutibhushan Bandyopadhyay\"\n\t\t},\n\t\t\"description\":\"Aranyak composed between 1937–39 is a famous Bengali novel by Bibhutibhushan Bandopadhyay based on his long and arduous years in northern Bihar, where he came into contact with a part of the world, that, even now, remains unknown to most of us. Aranyak literally means Of the Forest\",\n\t\t\"language\": {\n\t\t\t\"langCode\":\"BN\"\n\t\t}\n\t},\n\t\"user\" : {\n\t\t\"userName\" : \"piu001\",\n\t\t\"password\" : \"pass123$\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bs/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bs",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"book\" : {\n\t\t\"bookName\":\"Kapalkundala\",\n\t\t\"author\": {\n\t\t\t\"authorName\" : \"Bankim Chandra Chattopadhyay\"\n\t\t},\n\t\t\"description\":\"Kapalkundala, also known as Mrinmoyee, is a Bengali romance novel by Indian writer Bankim Chandra Chattopadhyay.\",\n\t\t\"wikiUrl\": \"https://en.wikipedia.org/wiki/Kapalkundala\",\n\t\t\"language\": {\n\t\t\t\"langCode\":\"BN\"\n\t\t}\n\t},\n\t\"user\" : {\n\t\t\"userName\" : \"piu001\",\n\t\t\"password\" : \"pass123$\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bs/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bs",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"book\" : {\n\t\t\"bookName\":\"Kapalkundala\",\n\t\t\"author\": {\n\t\t\t\"authorName\" : \"Bankim Chandra Chattopadhyay\"\n\t\t},\n\t\t\"description\":\"Kapalkundala, also known as Mrinmoyee, is a Bengali romance novel by Indian writer Bankim Chandra Chattopadhyay.\",\n\t\t\"wikiUrl\": \"https://en.wikipedia.org/wiki/Kapalkundala\",\n\t\t\"language\": {\n\t\t\t\"langCode\":\"BN\"\n\t\t}\n\t},\n\t\"user\" : {\n\t\t\"userName\" : \"piu001\",\n\t\t\"password\" : \"pass123$\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bs/books/BK1563711454114",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bs",
+								"books",
+								"BK1563711454114"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bookId\": \"BK1563711454114\",\n    \"bookName\": \"Aranyak\",\n    \"description\": \"Aranyak composed between 1937–1939 is a famous Bengali novel by Bibhutibhushan Bandopadhyay based on his long and arduous years in northern Bihar, where he came into contact with a part of the world, that, even now, remains unknown to most of us. Aranyak literally means Of the Forest\",\n    \"stockDate\": \"21-Jul-2019 @ 17:47:34\",\n    \"stockAvailable\": 1,\n    \"wikiUrl\": null,\n    \"imageUrl\": null,\n    \"genere\": null,\n    \"author\": {\n        \"authorId\": \"AU1563711454114\",\n        \"authorName\": \"Bibhutibhushan Bandyopadhyay\",\n        \"dateOfBirth\": null,\n        \"dateOfDeath\": null,\n        \"bio\": null,\n        \"wikiUrl\": null,\n        \"imageUrl\": null\n    },\n    \"language\": {\n        \"langCode\": \"BN\",\n        \"langName\": \"BENGALI\"\n    },\n    \"status\": {\n        \"status\": \"Available\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bs/books/BK1563711454114",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bs",
+								"books",
+								"BK1563711454114"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bs/books/BK1563711454114",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bs",
+								"books",
+								"BK1563711454114"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload CSV",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"csvPath\" : \"C:\\\\Users\\\\Priyanka\\\\Desktop\\\\books.csv\",\n\t\"user\" : {\n\t\t\"userName\" : \"piu001\",\n\t\t\"password\" : \"pass123$\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/bs/books/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bs",
+								"books",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User-Service",
+			"item": [
+				{
+					"name": "Log In",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userName\":\"arnab001\",\n\t\"password\":\"pass123$\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/userservice/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"userservice",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userId\":\"\",\r\n\t\"userName\":\"\",\r\n\t\"password\":\"\",\r\n\t\"confirmPassword\":\"\",\r\n\t\"email\":\"\",\r\n\t\"firstName\":\"\",\r\n\t\"lastName\":\"\",\r\n\t\"address1\":\"\",\r\n\t\"address2\":\"\",\r\n\t\"pin\":\"\",\r\n\t\"contactNo\":\"\",\r\n\t\"displayName\":\"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/userservice/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"userservice",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"userName\":\"arnab001\",\r\n\t\"password\":\"pass123$\",\r\n\t\"confirmPassword\":\"pass123$\",\r\n\t\"email\":\"arnab001@gmail.com\",\r\n\t\"firstName\":\"Arnab\",\r\n\t\"lastName\":\"Mondal\",\r\n\t\"address1\":\"Hyderabad\",\r\n\t\"address2\":\"Telangana\",\r\n\t\"pin\":\"500049\",\r\n\t\"contactNo\":\"7458214569\",\r\n\t\"displayName\":\"Arnab Mondal\",\r\n\t\"userRight\" : {\r\n\t\t\"userRightCode\" : \"U\"\r\n\t}\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/us/users/U1563639460976",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"us",
+								"users",
+								"U1563639460976"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/us/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"us",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"userId\": \"U1563722374572\",\n        \"userName\": \"piu001\",\n        \"email\": \"piu001@gmail.com\",\n        \"registrationDate\": \"21-Jul-2019 @ 20:49:34\",\n        \"lastUpdateDate\": \"\",\n        \"firstName\": \"Priyanka\",\n        \"lastName\": \"Sadhukhan\",\n        \"address1\": \"Miyapur Hyderabad\",\n        \"address2\": \"Telangana\",\n        \"pin\": 500049,\n        \"contactNo\": \"7458214510\",\n        \"displayName\": \"Priyanka Sadhukhan\",\n        \"userRight\": {\n            \"right\": \"SYSTEM ADMINISTRATOR\"\n        },\n        \"status\": {\n            \"statusDescription\": \"Active\"\n        }\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/us/users/U1563722645175",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"us",
+								"users",
+								"U1563722645175"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

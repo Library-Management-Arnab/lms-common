@@ -30,3 +30,4 @@ bin/*
 .gradle/*
 target/
 target/*
+.idea/*
