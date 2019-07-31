@@ -22,7 +22,7 @@ public class LMSExceptionAdvice {
 		LOG.error("Exception occurred - ", e);
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(e.getErrorCode());
-		eo.setMessage(e.getMessage());
+		eo.setMessage(String.format("Error occurred with message [%s] and type [%s]", e.getMessage(), e.getClass().getSimpleName()));
 		eo.setErrorTime(e.getErrorTime());
 
 		return new ResponseEntity<>(eo, e.getHttpStatus());
@@ -34,7 +34,7 @@ public class LMSExceptionAdvice {
 		LOG.error("Generic Exception occurred - ", e);
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(1010);
-		eo.setMessage(e.getMessage());
+		eo.setMessage(String.format("Error occurred with message [%s] and type [%s]", e.getMessage(), e.getClass().getSimpleName()));
 		eo.setErrorTime(ApplicationCommonConstants.getCurrentDateAsString());
 
 		return new ResponseEntity<>(eo, HttpStatus.INTERNAL_SERVER_ERROR);

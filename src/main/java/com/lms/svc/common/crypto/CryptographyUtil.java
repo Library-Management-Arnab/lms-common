@@ -36,7 +36,7 @@ public final class CryptographyUtil {
 			byte[] finalEncrypted = cipher.doFinal(originalString.getBytes("UTF-8"));
 			return Base64.getEncoder().encodeToString(finalEncrypted);
 		} catch (Exception e) {
-			LOG.error("Error while encrypting string - [{}]", e);
+			LOG.error("Error while encrypting string - ", e);
 			throw new CryptographyException(e);
 		}
 	}

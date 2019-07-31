@@ -16,7 +16,7 @@ public class InvalidFieldValueException extends ApplicationError {
 
 	public InvalidFieldValueException(String fieldName, String providedValue, List<String> values) {
 		String validValues = String.join(", ", values);
-		this.message = "Invalid " + fieldName + " [" + providedValue + "]. Valid statuses are [" + validValues + "].";
+		this.message = String.format("Invalid %s [%s]. Valid values are [%s]", fieldName, providedValue, validValues);
 		this.errorCode = ApplicationCommonConstants.INVALID_FIELD_VALUE_ERROR_CODE;
 		this.httpStatus = HttpStatus.BAD_REQUEST;
 		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();
@@ -24,7 +24,7 @@ public class InvalidFieldValueException extends ApplicationError {
 
 	public InvalidFieldValueException(String fieldName) {
 		this.httpStatus = HttpStatus.BAD_REQUEST;
-		this.message = "No " + fieldName + " was provided.";
+		this.message = String.format("No %s was provided.", fieldName);
 		this.errorCode = ApplicationCommonConstants.INVALID_FIELD_VALUE_ERROR_CODE;
 		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();
 	}
