@@ -23,12 +23,15 @@ public interface ApplicationCommonConstants {
     int CRYPTOGRAPHY_EXCEPTION_ERROR_CODE = 1004;
 
     String INVALID_CREDENTIALS_ERROR_MESSAGE = "Invalid Credentials!!";
-    int INVALID_CREDENTIALS_ERROR_CODE = 1006;
+    int INVALID_CREDENTIALS_ERROR_CODE = 1005;
 
-    int INVALID_FIELD_VALUE_ERROR_CODE = 1007;
+    int INVALID_FIELD_VALUE_ERROR_CODE = 1006;
 
     String NO_SUCH_USER_ERROR_MESSAGE = "No such user was found based on the search criteria.";
-    int NO_SUCH_USER_ERROR_CODE = 1008;
+    int NO_SUCH_USER_ERROR_CODE = 1007;
+    
+    String DUPLICATE_USER_ERROR_MESSAGE = "The user id %s is already taken. Please choose a different one.";
+    int DUPLICATE_USER_ERROR_CODE = 1008;
 
     // 1009-1014
     String NO_SUCH_BOOK_ERROR_MESSAGE = "No such book was found based on the search criteria.";
@@ -45,7 +48,11 @@ public interface ApplicationCommonConstants {
     int INACTIVE_USER_ERROR_CODE = 1021;
 
     String USER_STATUS_CODE_ACTIVE = "A";
+    String USER_STATUS_ACTIVE = "Active";
+
     String USER_STATUS_CODE_DELETED = "D";
+    String USER_STATUS_DELETED = "Deleted";
+
     String USER_STATUS_CODE_INACTIVE = "T";
     String USER_STATUS_CODE_TEMP_INACTIVE = "I";
     String USER_STATUS_CODE_SUSPENDED = "S";
@@ -53,7 +60,14 @@ public interface ApplicationCommonConstants {
     String USER_RIGHT_U = "U";
     String USER_RIGHT_A = "A";
 
+    String USER_RIGHT_ADMIN = "SYSTEM ADMINISTRATOR";
+    String USER_RIGHT_BASIC = "BASIC USER";
+
     String BOOK_STATUS_CODE_AVAILABLE = "A";
     String BOOK_STATUS_CODE_DELETED = "D";
     String BOOK_STATUS_CODE_TEMP_UNABAILABLE = "T";
+    
+    String BOOK_STATUS_AVAILABLE = "Available";
+    String BOOK_STATUS_DELETED = "Deleted";
+    String BOOK_STATUS_TEMP_UNABAILABLE = "Temporarily Unavailable";
 }

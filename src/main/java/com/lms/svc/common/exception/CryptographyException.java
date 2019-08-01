@@ -14,7 +14,7 @@ public final class CryptographyException extends ApplicationError {
 
 	public CryptographyException(Exception e) {
 		this.httpStatus = HttpStatus.FORBIDDEN;
-		this.message = e.getMessage();
+		this.message = String.format("Error occurred with message [%s] and type [%s]", e.getMessage(), e.getClass().getSimpleName());
 		this.errorCode = ApplicationCommonConstants.CRYPTOGRAPHY_EXCEPTION_ERROR_CODE;
 		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();
 	}
