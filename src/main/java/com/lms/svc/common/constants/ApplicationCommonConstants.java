@@ -38,7 +38,7 @@ public interface ApplicationCommonConstants {
     int NO_SUCH_BOOK_ERROR_CODE = 1009;
     int INVALID_BOOK_STATUS_ERROR_CODE = 1010;
     int DUPLICATE_BOOK_ERROR_CODE = 1011;
-
+    int BOOK_SERVICE_EXCEPTION_FOR_CLIENT = 1012;
     //1015 - 1020
     String INSUFFICIENT_PRIVILAGE_ERROR_MESSAGE = "You do not have appropriate right to perform this operation.";
     int INSUFFICIENT_PRIVILAGE_ERROR_CODE = 1015;
@@ -46,6 +46,8 @@ public interface ApplicationCommonConstants {
     //1021-1025
     String INACTIVE_USER_ERROR_MESSAGE = "Either this user is inactive or has been deleted.";
     int INACTIVE_USER_ERROR_CODE = 1021;
+    
+    int USER_SERVICE_EXCEPTION_FOR_CLIENT = 1022;
 
     String USER_STATUS_CODE_ACTIVE = "A";
     String USER_STATUS_ACTIVE = "Active";
@@ -73,4 +75,7 @@ public interface ApplicationCommonConstants {
     
     String USER_SERVICE_APP_NAME = "user-service";
     String BOOK_SERVICE_APP_NAME = "book-service";
+    
+    String BOOK_SERVICE_BASE_URI = "/api/bs/books/";
+    String USER_SERVICE_BASE_URI = "/api/us/users/";
 }

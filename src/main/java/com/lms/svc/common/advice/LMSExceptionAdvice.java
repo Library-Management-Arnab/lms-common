@@ -24,7 +24,7 @@ public class LMSExceptionAdvice {
 		eo.setErrorCode(e.getErrorCode());
 		eo.setMessage(String.format("Error occurred with message [%s] and type [%s]", e.getMessage(), e.getClass().getSimpleName()));
 		eo.setErrorTime(e.getErrorTime());
-
+		eo.setHttpStatus(e.getHttpStatus());
 		return new ResponseEntity<>(eo, e.getHttpStatus());
 	}
 	@ExceptionHandler(value = { 
@@ -36,7 +36,7 @@ public class LMSExceptionAdvice {
 		eo.setErrorCode(1010);
 		eo.setMessage(String.format("Error occurred with message [%s] and type [%s]", e.getMessage(), e.getClass().getSimpleName()));
 		eo.setErrorTime(ApplicationCommonConstants.getCurrentDateAsString());
-
+		eo.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return new ResponseEntity<>(eo, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
