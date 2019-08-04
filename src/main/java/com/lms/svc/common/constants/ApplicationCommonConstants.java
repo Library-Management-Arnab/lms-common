@@ -70,4 +70,7 @@ public interface ApplicationCommonConstants {
     String BOOK_STATUS_AVAILABLE = "Available";
     String BOOK_STATUS_DELETED = "Deleted";
     String BOOK_STATUS_TEMP_UNABAILABLE = "Temporarily Unavailable";
+    
+    String USER_SERVICE_APP_NAME = "user-service";
+    String BOOK_SERVICE_APP_NAME = "book-service";
 }

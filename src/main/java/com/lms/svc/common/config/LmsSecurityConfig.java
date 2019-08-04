@@ -1,18 +1,16 @@
 package com.lms.svc.common.config;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import com.lms.svc.common.repository.LmsAuthenticationProvider;
 
 import lombok.AllArgsConstructor;
 
-@Configuration
-@EnableWebSecurity
+//@Configuration
+//@EnableWebSecurity
 @AllArgsConstructor
 public class LmsSecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final String USER_SERVICE_API = "**/api/us/users/";

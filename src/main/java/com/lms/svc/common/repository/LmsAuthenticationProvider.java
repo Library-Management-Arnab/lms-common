@@ -19,14 +19,14 @@ import lombok.AllArgsConstructor;
 @Component
 @AllArgsConstructor
 public class LmsAuthenticationProvider implements AuthenticationProvider {
-	private UserServiceRepository userServiceRepository;
+	//private UserServiceRepositoryWillbedeleted userServiceRepository;
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String userName = authentication.getName();
 		String password = authentication.getCredentials().toString();
 		
-		AuthenticatedUser authenticatedUser = userServiceRepository.authenticate(userName, password);
+		AuthenticatedUser authenticatedUser = null;//userServiceRepository.authenticate(userName, password);
 		Collection<GrantedAuthority> grantedAuthorities = getGrantedAuthorities(authenticatedUser);
 		
 		User principal = new User(authenticatedUser.getUserName(), password, grantedAuthorities);
