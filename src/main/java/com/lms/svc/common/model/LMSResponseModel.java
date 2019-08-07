@@ -1,14 +1,16 @@
 package com.lms.svc.common.model;
 
-import lombok.Data;
-
 import java.io.Serializable;
 
+import lombok.Data;
+
 @Data
-public class LMSResponseModel implements Serializable {
-    private Object body;
-    private ErrorObject error;
-    private String finalStatus;
-    private int recordReturned;
+public class LMSResponseModel<T> implements Serializable {
+	private static final long serialVersionUID = 3891019634004996128L;
+	
+	private T body;
+	private RequestMetaData metaData;
+	private String finalStatus;
+	private int recordReturned;
 
 }

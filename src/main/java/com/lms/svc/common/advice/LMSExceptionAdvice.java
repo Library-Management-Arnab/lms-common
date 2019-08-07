@@ -1,24 +1,27 @@
 package com.lms.svc.common.advice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
 import com.lms.svc.common.constants.ApplicationCommonConstants;
 import com.lms.svc.common.exception.ApplicationError;
 import com.lms.svc.common.exception.ServiceException;
 import com.lms.svc.common.model.ErrorObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.util.Arrays;
+import com.lms.svc.common.util.LMSResponseUtil;
 
 @RestControllerAdvice
 public class LMSExceptionAdvice {
 	private static final Logger LOG = LoggerFactory.getLogger(LMSExceptionAdvice.class);
+	
+	/**
+	 * This exception handler is only for the services.
+	 * @param e
+	 * @return
+	 */
 	@ExceptionHandler(value = {
 			ApplicationError.class
 		})
@@ -27,11 +30,12 @@ public class LMSExceptionAdvice {
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(e.getErrorCode());
 		String message = e.getMessage() == null ? String.format("Error occurred -[%s]", e.getClass().getSimpleName()) : e.getMessage();
-		eo.setMessage(String.format("[%s] - %s",e.getClass().getSimpleName(), e.getMessage()));
+		eo.setMessage(String.format("[%s] - %s",e.getClass().getSimpleName(), message));
 		eo.setErrorTime(e.getErrorTime());
 		eo.setHttpStatus(e.getHttpStatus());
-		return createEntityWithStandardResponseHeaders(eo, e.getHttpStatus());
+		return new ResponseEntity<>(eo, e.getHttpStatus());
 	}
+	
 	@ExceptionHandler(value = {
 			ServiceException.class
 	})
@@ -39,6 +43,7 @@ public class LMSExceptionAdvice {
 		LOG.error(String.format("ServiceException occurred - %s", e.getLocalizedMessage()));
 		return createEntityWithStandardResponseHeaders(e.getErrorObject(), e.getErrorObject().getHttpStatus());
 	}
+	
 	@ExceptionHandler(value = {
 			Exception.class
 	})
@@ -51,9 +56,8 @@ public class LMSExceptionAdvice {
 		eo.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return createEntityWithStandardResponseHeaders(eo, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
 	private ResponseEntity<Object> createEntityWithStandardResponseHeaders(Object body, HttpStatus httpStatus) {
-		MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-		headers.put("Content-Type", Arrays.asList(MediaType.APPLICATION_JSON_VALUE));
-		return new ResponseEntity<>(body, headers, httpStatus);
+		return LMSResponseUtil.returnResponse(body, httpStatus);
 	}
 }

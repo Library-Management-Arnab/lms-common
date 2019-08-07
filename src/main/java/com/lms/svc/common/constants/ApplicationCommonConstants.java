@@ -19,7 +19,7 @@ public interface ApplicationCommonConstants {
 
     String NOT_IMPLEMENTED_ERROR_MESSAGE = "This functionality has not been implemented yet.";
     int NOT_IMPLEMENTED_ERROR_CODE = 1000;
-
+    int ENDPOINT_NOT_AVAILABLE_ERROR_CODE = 1001;
     int CRYPTOGRAPHY_EXCEPTION_ERROR_CODE = 1004;
 
     String INVALID_CREDENTIALS_ERROR_MESSAGE = "Invalid Credentials!!";
@@ -74,7 +74,7 @@ public interface ApplicationCommonConstants {
     String BOOK_STATUS_TEMP_UNABAILABLE = "Temporarily Unavailable";
     
     String USER_SERVICE_APP_NAME = "user-service";
-    String BOOK_SERVICE_APP_NAME = "book-service";
+    String BOOK_SERVICE_APP_ID = "book-service";
     
     String BOOK_SERVICE_BASE_URI = "/api/bs/books/";
     String USER_SERVICE_BASE_URI = "/api/us/users/";
