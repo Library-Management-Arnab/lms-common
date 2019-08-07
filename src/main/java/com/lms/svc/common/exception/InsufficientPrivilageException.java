@@ -13,7 +13,8 @@ public class InsufficientPrivilageException extends ApplicationError {
 	private final String errorTime;
 	
 	public InsufficientPrivilageException() {
-		this.message = ApplicationCommonConstants.INSUFFICIENT_PRIVILAGE_ERROR_MESSAGE;
+		super(ApplicationCommonConstants.INSUFFICIENT_PRIVILAGE_ERROR_MESSAGE);
+		this.message = super.getMessage();
 		this.errorCode = ApplicationCommonConstants.INSUFFICIENT_PRIVILAGE_ERROR_CODE;
 		this.httpStatus = HttpStatus.FORBIDDEN;
 		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();

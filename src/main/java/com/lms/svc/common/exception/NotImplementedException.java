@@ -14,7 +14,8 @@ public class NotImplementedException extends ApplicationError {
 	private final String errorTime;
 	
 	public NotImplementedException() {
-		this.message = ApplicationCommonConstants.NOT_IMPLEMENTED_ERROR_MESSAGE;
+		super(ApplicationCommonConstants.NOT_IMPLEMENTED_ERROR_MESSAGE);
+		this.message = super.getMessage();
 		this.errorCode = ApplicationCommonConstants.NOT_IMPLEMENTED_ERROR_CODE;
 		this.httpStatus = HttpStatus.UNPROCESSABLE_ENTITY;
 		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();

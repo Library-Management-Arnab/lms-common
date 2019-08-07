@@ -13,7 +13,8 @@ public class InvalidCredentialsException extends ApplicationError {
 	private final String errorTime;
 
 	public InvalidCredentialsException() {
-		this.message = ApplicationCommonConstants.INVALID_CREDENTIALS_ERROR_MESSAGE;
+		super(ApplicationCommonConstants.INVALID_CREDENTIALS_ERROR_MESSAGE);
+		this.message = super.getMessage();
 		this.errorCode = ApplicationCommonConstants.INVALID_CREDENTIALS_ERROR_CODE;
 		this.httpStatus = HttpStatus.FORBIDDEN;
 		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();
