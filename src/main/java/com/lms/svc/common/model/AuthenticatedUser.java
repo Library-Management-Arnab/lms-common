@@ -11,7 +11,7 @@ public class AuthenticatedUser {
 	private String userStatus;
 	
 	public boolean isAdmin() {
-		return ApplicationCommonConstants.USER_RIGHT_A.equalsIgnoreCase(userRight);
+		return ApplicationCommonConstants.USER_RIGHT_ADMIN.equalsIgnoreCase(userRight);
 	}
 	public boolean isActive() {
 		return ApplicationCommonConstants.USER_STATUS_CODE_ACTIVE.equalsIgnoreCase(userStatus);

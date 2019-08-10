@@ -73,9 +73,10 @@ public interface ApplicationCommonConstants {
     String BOOK_STATUS_DELETED = "Deleted";
     String BOOK_STATUS_TEMP_UNABAILABLE = "Temporarily Unavailable";
     
-    String USER_SERVICE_APP_NAME = "user-service";
+    String USER_SERVICE_APP_ID = "user-service";
     String BOOK_SERVICE_APP_ID = "book-service";
     
-    String BOOK_SERVICE_BASE_URI = "/api/bs/books/";
-    String USER_SERVICE_BASE_URI = "/api/us/users/";
+    String BOOK_SERVICE_BASE_URI = "api/bs/books";
+    String USER_SERVICE_BASE_URI = "api/us/users";
+    String USER_SERVICE_URI_LOGIN = "login";
 }
