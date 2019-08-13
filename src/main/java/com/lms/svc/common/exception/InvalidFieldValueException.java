@@ -1,5 +1,6 @@
 package com.lms.svc.common.exception;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ public class InvalidFieldValueException extends ApplicationError {
 	private final HttpStatus httpStatus;
 	private final String errorTime;
 
-	public InvalidFieldValueException(String fieldName, String providedValue, List<String> values) {
+	public InvalidFieldValueException(String fieldName, String providedValue, Collection<String> values) {
 		super(String.format("Invalid %s [%s]. Valid values are [%s]", fieldName, providedValue, String.join(", ", values)));
 		this.message = super.getMessage();
 		this.errorCode = ApplicationCommonConstants.INVALID_FIELD_VALUE_ERROR_CODE;

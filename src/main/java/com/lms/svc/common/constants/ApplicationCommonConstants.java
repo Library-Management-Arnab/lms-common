@@ -1,8 +1,11 @@
 package com.lms.svc.common.constants;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Random;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public interface ApplicationCommonConstants {
     String DATE_FORMAT = "dd-MMM-yyyy '@' HH:mm:ss";
@@ -62,12 +65,12 @@ public interface ApplicationCommonConstants {
     String USER_RIGHT_U = "U";
     String USER_RIGHT_A = "A";
 
-    String USER_RIGHT_ADMIN = "SYSTEM ADMINISTRATOR";
-    String USER_RIGHT_BASIC = "BASIC USER";
+    String USER_ROLE_ADMIN = "FULL_ADMIN";
+    String USER_ROLE_BASIC = "LIB_READ_ONLY";
 
     String BOOK_STATUS_CODE_AVAILABLE = "A";
     String BOOK_STATUS_CODE_DELETED = "D";
-    String BOOK_STATUS_CODE_TEMP_UNABAILABLE = "T";
+    String BOOK_STATUS_CODE_TEMP_UNAVAILABLE = "T";
     
     String BOOK_STATUS_AVAILABLE = "Available";
     String BOOK_STATUS_DELETED = "Deleted";
@@ -79,4 +82,12 @@ public interface ApplicationCommonConstants {
     String BOOK_SERVICE_BASE_URI = "api/bs/books";
     String USER_SERVICE_BASE_URI = "api/us/users";
     String USER_SERVICE_URI_LOGIN = "login";
+
+    int DEFAULT_ACCESS_TOKEN_VALIDITY_SECONDS = 1 * 60 * 60;
+    int DEFAULT_REFRESH_TOKEN_VALIDITY_SECONDS = 1 * 60 * 60;
+    String SCOPE_READ_ONLY = "READ_ONLY";
+
+    static <E, R> Collection<R> toCollection(Collection<E> items, Function<? super E, R> function) {
+        return items.stream().map(function).collect(Collectors.toList());
+    }
 }
