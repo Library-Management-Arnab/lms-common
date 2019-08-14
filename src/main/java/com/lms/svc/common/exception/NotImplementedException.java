@@ -1,5 +1,6 @@
 package com.lms.svc.common.exception;
 
+import com.lms.svc.common.util.CommonUtil;
 import org.springframework.http.HttpStatus;
 
 import com.lms.svc.common.constants.ApplicationCommonConstants;
@@ -11,14 +12,12 @@ public class NotImplementedException extends ApplicationError {
 	private final String message;
 	private final int errorCode;
 	private final HttpStatus httpStatus;
-	private final String errorTime;
-	
+
 	public NotImplementedException() {
 		super(ApplicationCommonConstants.NOT_IMPLEMENTED_ERROR_MESSAGE);
 		this.message = super.getMessage();
 		this.errorCode = ApplicationCommonConstants.NOT_IMPLEMENTED_ERROR_CODE;
 		this.httpStatus = HttpStatus.UNPROCESSABLE_ENTITY;
-		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();
 	}
 	
 	public int getErrorCode() {
@@ -30,11 +29,6 @@ public class NotImplementedException extends ApplicationError {
 		return this.message;
 	}
 
-	@Override
-	public String getErrorTime() {
-		return errorTime;
-	}
-	
 	@Override
 	public HttpStatus getHttpStatus() {
 		return this.httpStatus;

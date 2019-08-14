@@ -1,17 +1,16 @@
 package com.lms.svc.common.advice;
 
+import com.lms.svc.common.exception.ApplicationError;
+import com.lms.svc.common.exception.ServiceException;
+import com.lms.svc.common.model.ErrorObject;
+import com.lms.svc.common.util.CommonUtil;
+import com.lms.svc.common.util.LMSResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import com.lms.svc.common.constants.ApplicationCommonConstants;
-import com.lms.svc.common.exception.ApplicationError;
-import com.lms.svc.common.exception.ServiceException;
-import com.lms.svc.common.model.ErrorObject;
-import com.lms.svc.common.util.LMSResponseUtil;
 
 @RestControllerAdvice
 public class LMSExceptionAdvice {
@@ -52,7 +51,7 @@ public class LMSExceptionAdvice {
 		ErrorObject eo = new ErrorObject();
 		eo.setErrorCode(1010);
 		eo.setMessage(String.format("Error occurred with message [%s] and type [%s]", e.getMessage(), e.getClass().getSimpleName()));
-		eo.setErrorTime(ApplicationCommonConstants.getCurrentDateAsString());
+		eo.setErrorTime(CommonUtil.getCurrentDateAsString());
 		eo.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return createEntityWithStandardResponseHeaders(eo, HttpStatus.INTERNAL_SERVER_ERROR);
 	}

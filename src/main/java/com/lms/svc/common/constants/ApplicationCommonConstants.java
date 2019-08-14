@@ -10,15 +10,6 @@ import java.util.stream.Collectors;
 public interface ApplicationCommonConstants {
     String DATE_FORMAT = "dd-MMM-yyyy '@' HH:mm:ss";
     SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(DATE_FORMAT);
-    Random RANDOM = new Random();
-
-    static String getCurrentDateAsString() {
-        return DATE_FORMATTER.format(new Date());
-    }
-
-    static long generateId() {
-        return (System.currentTimeMillis() + RANDOM.nextInt());
-    }
 
     String NOT_IMPLEMENTED_ERROR_MESSAGE = "This functionality has not been implemented yet.";
     int NOT_IMPLEMENTED_ERROR_CODE = 1000;
@@ -87,7 +78,5 @@ public interface ApplicationCommonConstants {
     int DEFAULT_REFRESH_TOKEN_VALIDITY_SECONDS = 1 * 60 * 60;
     String SCOPE_READ_ONLY = "READ_ONLY";
 
-    static <E, R> Collection<R> toCollection(Collection<E> items, Function<? super E, R> function) {
-        return items.stream().map(function).collect(Collectors.toList());
-    }
+
 }

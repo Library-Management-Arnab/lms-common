@@ -1,5 +1,6 @@
 package com.lms.svc.common.exception;
 
+import com.lms.svc.common.util.CommonUtil;
 import org.springframework.http.HttpStatus;
 
 public abstract class ApplicationError extends RuntimeException {
@@ -13,6 +14,8 @@ public abstract class ApplicationError extends RuntimeException {
 		return super.getMessage();
 	}
 	public abstract int getErrorCode();
-	public abstract String getErrorTime();
+	public final String getErrorTime() {
+		return CommonUtil.getCurrentDateAsString();
+	}
 	public abstract HttpStatus getHttpStatus();
 }

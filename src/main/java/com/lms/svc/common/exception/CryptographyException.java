@@ -1,5 +1,6 @@
 package com.lms.svc.common.exception;
 
+import com.lms.svc.common.util.CommonUtil;
 import org.springframework.http.HttpStatus;
 
 import com.lms.svc.common.constants.ApplicationCommonConstants;
@@ -7,7 +8,6 @@ import com.lms.svc.common.constants.ApplicationCommonConstants;
 public final class CryptographyException extends ApplicationError {
 
 	private static final long serialVersionUID = 3219597143587913853L;
-	private final String errorTime;
 	private final HttpStatus httpStatus;
 	private final String message;
 	private final int errorCode;
@@ -17,17 +17,11 @@ public final class CryptographyException extends ApplicationError {
 		this.httpStatus = HttpStatus.FORBIDDEN;
 		this.message = super.getMessage();
 		this.errorCode = ApplicationCommonConstants.CRYPTOGRAPHY_EXCEPTION_ERROR_CODE;
-		this.errorTime = ApplicationCommonConstants.getCurrentDateAsString();
 	}
 
 	@Override
 	public int getErrorCode() {
 		return this.errorCode;
-	}
-
-	@Override
-	public String getErrorTime() {
-		return this.errorTime;
 	}
 
 	@Override
