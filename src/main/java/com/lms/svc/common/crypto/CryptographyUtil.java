@@ -9,6 +9,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,7 @@ public final class CryptographyUtil {
 	private static byte[] key;
 	
 	public static String generateSecret() {
-		String randomString = RandomStringUtils.randomAlphanumeric(16);
+		String randomString = RandomStringUtils.randomAlphanumeric(16) + RandomUtils.nextInt();
 		return Base64.getEncoder().encodeToString(randomString.getBytes());
 	}
 
@@ -65,7 +66,9 @@ public final class CryptographyUtil {
 			throw new CryptographyException(e);
 		}
 	}
-	
+	public static final String createSecret() {
+		return generateSecret();
+	}
 	public static void main(String[] args) {
 		String secret = generateSecret();
 		String enc = encrypt("India123$", secret);
